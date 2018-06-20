@@ -1,0 +1,9 @@
+N:\Lessons\Software Systems Development\A2\ALevel Projects\Sample School\SchoolsDatabase\SchoolsDatabase\obj\Debug\SchoolsDatabase.frmView.resources
+N:\Lessons\Software Systems Development\A2\ALevel Projects\Sample School\SchoolsDatabase\SchoolsDatabase\obj\Debug\SchoolsDatabase.Properties.Resources.resources
+N:\Lessons\Software Systems Development\A2\ALevel Projects\Sample School\SchoolsDatabase\SchoolsDatabase\obj\Debug\SchoolsDatabase.csproj.GenerateResource.Cache
+N:\Lessons\Software Systems Development\A2\ALevel Projects\Sample School\SchoolsDatabase\SchoolsDatabase\bin\Debug\SchoolsDatabase.exe.config
+N:\Lessons\Software Systems Development\A2\ALevel Projects\Sample School\SchoolsDatabase\SchoolsDatabase\bin\Debug\SchoolsDatabase.exe
+N:\Lessons\Software Systems Development\A2\ALevel Projects\Sample School\SchoolsDatabase\SchoolsDatabase\bin\Debug\SchoolsDatabase.pdb
+N:\Lessons\Software Systems Development\A2\ALevel Projects\Sample School\SchoolsDatabase\SchoolsDatabase\obj\Debug\SchoolsDatabase.exe
+N:\Lessons\Software Systems Development\A2\ALevel Projects\Sample School\SchoolsDatabase\SchoolsDatabase\obj\Debug\SchoolsDatabase.pdb
+N:\Lessons\Software Systems Development\A2\ALevel Projects\Sample School\SchoolsDatabase\SchoolsDatabase\obj\Debug\SchoolsDatabase.csprojResolveAssemblyReference.cache

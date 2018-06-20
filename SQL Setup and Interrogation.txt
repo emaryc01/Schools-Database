@@ -1,0 +1,110 @@
+/*Create database and tables.  Populate database. */
+
+CREATE DATABASE school;
+
+CREATE TABLE students
+(
+	studentId VARCHAR(5) NOT NULL PRIMARY KEY,
+	firstName VARCHAR(30),
+	lastName VARCHAR(30),
+	dateRegistered DATE DEFAULT GETDATE(), 
+	course VARCHAR(30) NOT NULL,
+	telNumber CHAR(11) ,
+	email VARCHAR(40) ,
+	CONSTRAINT telNumber CHECK (telNumber LIKE '[0 OR +][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'),
+	CONSTRAINT email CHECK (email LIKE '%_@__%.__%')
+
+);
+INSERT INTO students (studentId, firstName, lastName,course, telNumber, email) VALUES
+('11111','Emer', 'Campbell','Computer Science','+7928577315','emaryc01@yahoo.co.uk'),
+('11112','Mary', 'Kelly','Primary Education','07867414256','mkelly@yahoo.co.uk'),
+('11113','John', 'Murray','Sports Science','02843678901','johncampbell@gmail.com')
+;
+
+INSERT INTO students VALUES
+('11114','Niall', 'Wallace','2018-01-25','Electrical Engineering','02890458598','nwallace@gmail.com'),
+('11115','Orla', 'Smith','2017-09-12','Law with French','+7945123638','omcampbell@hotmail.com')
+;
+
+CREATE TABLE classes
+(
+	classId VARCHAR(3) NOT NULL PRIMARY KEY,
+	className VARCHAR(45),
+	teacher VARCHAR(50),
+	room VARCHAR(3),
+);
+
+INSERT INTO classes VALUES
+('001','Algorithmic Programming', 'Professor R. Sutton','I01'),
+('002','Computer Hardware and Architecture', 'Professor G. Hadden','I02'),
+('003','Natural Language Processing', 'Mrs G. Savage','I10'),
+('004','Child Safeguarding', 'Mr J. Black','E12'),
+('005','Delivering Literacy', 'Miss K. Barr','E13'),
+('006','Structured Play', 'Miss K. Barr','E09'),
+('007','Sports Anatomy', 'Mr H. Nugent','S09'),
+('008','Advanced Coaching Skills', 'Mrs L. McShane','S03'),
+('009','Electronics and Power Systems', 'Miss M. Clancy','I07'),
+('010','Mathematics for Computing', 'Mr S. Sloan','I01'),
+('011','Conveyancing', 'Mrs O. Wallace','L08'),
+('012','Introduction to Litigation', 'Mr J. McCann','L03'),
+('013','20th Century French Literature', 'Mr A. Camus','F17')
+;
+
+CREATE TABLE student_classes
+(
+	studentId VARCHAR(5) FOREIGN KEY REFERENCES students(studentId), 
+	classId VARCHAR(3) FOREIGN KEY REFERENCES classes(classId),
+	PRIMARY KEY (studentId, classId),
+	
+);
+
+INSERT INTO student_classes VALUES
+('11111','001'),
+('11111','002'),
+('11111','003'),
+('11112','004'),
+('11112','005'),
+('11112','006'),
+('11113','006'),
+('11113','007'),
+('11113','008'),
+('11114','001'),
+('11114','009'),
+('11114','010'),
+('11115','011'),
+('11115','013')
+;
+
+/*Sample SQL code for interrogating the database*/
+
+/*Find out how many months each student has been registered*/
+
+SELECT firstName + lastName, dateRegistered, DATEDIFF(MONTH, dateRegistered, GETDATE()) AS monthsAsStudent
+FROM students
+WHERE monthsAsStudent = 0
+
+/*display all students taking class 001*/
+
+SELECT DISTINCT students.studentId, students.firstName , students.lastName, students.course, classes.className
+FROM students JOIN student_classes ON students.studentId = student_classes.studentId
+JOIN classes ON student_classes.classId = classes.classId
+WHERE student_classes.classId = '001'
+
+/*count how many classes each student is taking */
+
+SELECT studentId, COUNT(*)
+FROM student_classes
+GROUP BY studentId
+
+
+
+
+
+
+
+
+
+
+
+
+
